@@ -34,7 +34,7 @@ sort -o $file $file
 # echo "$(cat $file)"
 
 # Remove the lines that start with "a" or "A" & save the result into a new file
-sed -e 's/A.*//g' -e 's/a.*//g' $file > $changed_file
+sed -e '/^A/d' -e '/^a/d' $file > $changed_file
 
 # Remove in-place blank lines
 sed -i '/^[[:space:]]*$/d' $changed_file
